@@ -1,0 +1,30 @@
+models:
+  - name: Qwen2.5 Coder (chat/edit)
+    provider: ollama
+    model: qwen2.5-coder:7b
+    roles:
+      - chat
+      - edit
+      - apply
+
+  - name: Qwen2.5 Coder (autocomplete)
+    provider: ollama
+    model: qwen2.5-coder:7b
+    roles:
+      - autocomplete
+    autocompleteOptions:
+      modelTimeout: 15000
+      debounceDelay: 500
+      maxPromptTokens: 512
+
+context:
+  - provider: file
+  - provider: currentFile
+  - provider: diff
+  - provider: terminal
+  - provider: folder
+
+rules:
+  - "Este es un proyecto de portafolio personal hecho en React (Vite) para desplegar en GitHub Pages."
+  - "Usa componentes funcionales y hooks. Evita clases."
+  - "Mantén el código simple y legible, sin dependencias innecesarias."
